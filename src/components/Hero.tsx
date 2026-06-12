@@ -20,8 +20,11 @@ const stats = [
 export default function Hero() {
   return (
     <section id="hero" style={{ minHeight: "100vh", display: "flex", alignItems: "center", paddingTop: "6rem" }}>
-      <div className="container">
-        <div className="hero-grid">
+      <div className="container" style={{ position: "relative" }}>
+        {/* Diagonal decorative glow line */}
+        <div style={{ position: "absolute", top: "0%", right: "-10%", width: "100%", height: "2px", background: "linear-gradient(90deg, transparent, var(--accent-secondary), transparent)", transform: "rotate(-25deg)", opacity: 0.5, pointerEvents: "none" }} />
+        
+        <div className="hero-grid" style={{ position: "relative", zIndex: 1 }}>
 
           {/* Left — Text */}
           <motion.div className="hero-grid-left" variants={stagger} initial="hidden" animate="visible">
@@ -33,8 +36,8 @@ export default function Hero() {
             </motion.div>
 
             <motion.h1 variants={fadeUp} style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(3rem,7vw,5.5rem)", fontWeight: 900, lineHeight: 1.05, letterSpacing: "-0.04em", marginBottom: "1.5rem" }}>
-              Harsh<br />
-              <span style={{ color: "var(--accent)" }}>Dave</span><span style={{ color: "var(--text-muted)" }}>.</span>
+              Hello, I&apos;m<br />
+              <span className="text-gradient">Harsh Dave</span><span style={{ color: "var(--text-muted)" }}>.</span>
             </motion.h1>
 
             <motion.div variants={fadeUp} style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.75rem" }}>
@@ -76,17 +79,22 @@ export default function Hero() {
                 background: "#0a0a0a"
               }}>
                 {/* Ambient glow behind image */}
-                <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "100%", height: "100%", background: "radial-gradient(circle, rgba(249,115,22,0.2) 0%, transparent 70%)" }} />
+                <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "100%", height: "100%", background: "radial-gradient(circle, var(--accent-glow) 0%, transparent 70%)" }} />
+                
+                {/* Thin decorative crosshairs / circles */}
+                <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "320px", height: "320px", border: "1px dashed rgba(255,255,255,0.1)", borderRadius: "50%", pointerEvents: "none" }} />
+                <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "100%", height: "1px", background: "rgba(255,255,255,0.05)", pointerEvents: "none" }} />
+                <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "1px", height: "100%", background: "rgba(255,255,255,0.05)", pointerEvents: "none" }} />
                 
                 {/* Image with matching theme filters */}
                 <img 
-                  src="/profile.png" 
+                  src="/avatar-neon.jpg" 
                   alt="Harsh Dave" 
                   style={{
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
-                    objectPosition: "center 10%",
+                    objectPosition: "center center",
                     filter: "contrast(1.05) brightness(0.95)",
                     transition: "transform 0.5s ease-out, filter 0.5s ease",
                   }}
@@ -139,7 +147,7 @@ export default function Hero() {
         >
           {stats.map((s, i) => (
             <div key={i} style={{ background: "var(--bg-card)", padding: "1.75rem", textAlign: "center" }}>
-              <div style={{ fontFamily: "var(--font-heading)", fontSize: "2.4rem", fontWeight: 700, color: "var(--accent)", lineHeight: 1 }}>{s.value}</div>
+              <div className="text-gradient" style={{ fontFamily: "var(--font-heading)", fontSize: "2.4rem", fontWeight: 700, lineHeight: 1 }}>{s.value}</div>
               <div style={{ fontSize: "0.82rem", color: "var(--text-secondary)", marginTop: "0.4rem", letterSpacing: "0.05em" }}>{s.label}</div>
             </div>
           ))}

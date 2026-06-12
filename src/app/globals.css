@@ -1,24 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* ── Design Tokens ──────────────────────────────────────────────────────── */
 :root {
-  --bg:           #0D0D0D;
-  --bg-card:      #141414;
-  --bg-card-hover:#1A1A1A;
-  --border:       #242424;
-  --border-hover: #F97316;
-  --accent:       #F97316;
-  --accent-dim:   rgba(249,115,22,0.12);
-  --accent-glow:  rgba(249,115,22,0.25);
-  --text-primary: #EDEDED;
-  --text-secondary:#888888;
-  --text-muted:   #4A4A4A;
-  --font-heading: 'Playfair Display', Georgia, serif;
-  --font-body:    'DM Sans', system-ui, sans-serif;
-  --font-mono:    'DM Mono', monospace;
+  --bg:           #05050A;
+  --bg-card:      #0C0C14;
+  --bg-card-hover:#12121E;
+  --border:       #1E1E2E;
+  --border-hover: #b500ff;
+  --accent:       #00e5ff;
+  --accent-secondary: #b500ff;
+  --accent-tertiary: #ff0055;
+  --gradient-primary: linear-gradient(90deg, var(--accent-secondary), var(--accent), var(--accent-tertiary));
+  --gradient-text: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+  --accent-dim:   rgba(0, 229, 255, 0.1);
+  --accent-glow:  rgba(181, 0, 255, 0.4);
+  --text-primary: #F8FAFC;
+  --text-secondary:#CBD5E1;
+  --text-muted:   #94A3B8;
+  --font-heading: 'Outfit', system-ui, sans-serif;
+  --font-body:    'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
   --ease-out:     cubic-bezier(0.16, 1, 0.3, 1);
   --transition:   0.3s var(--ease-out);
-  --radius:       12px;
+  --radius:       16px;
+}
+
+/* ── Global Background Glows ────────────────────────────────────────────── */
+body::before, body::after {
+  content: '';
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(150px);
+  z-index: -1;
+  opacity: 0.15;
+  pointer-events: none;
+}
+body::before {
+  top: -10%;
+  left: -10%;
+  background: var(--accent-secondary);
+}
+body::after {
+  bottom: -10%;
+  right: -10%;
+  background: var(--accent);
+}
+
+/* ── Typography Utility ─────────────────────────────────────────────────── */
+.text-gradient {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
 }
 
 /* ── Reset ──────────────────────────────────────────────────────────────── */
@@ -142,18 +179,21 @@ section { padding: 6rem 0; }
 
 .nav-cta {
   padding: 0.6rem 1.4rem;
-  border: 1px solid var(--accent);
-  border-radius: 6px;
+  background: var(--gradient-primary);
+  background-size: 200% auto;
+  border-radius: 30px;
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--accent);
+  color: #FFFFFF;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   transition: all var(--transition);
+  border: none;
 }
 .nav-cta:hover {
-  background: var(--accent);
-  color: #0D0D0D;
+  background-position: right center;
+  box-shadow: 0 5px 15px var(--accent-glow);
+  color: #FFFFFF;
 }
 
 /* ── Section Labels ─────────────────────────────────────────────────────── */
@@ -166,13 +206,13 @@ section { padding: 6rem 0; }
 .section-label-num {
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: var(--accent);
+  color: var(--accent-secondary);
   letter-spacing: 0.1em;
 }
 .section-label-line {
   width: 40px;
   height: 1px;
-  background: var(--accent);
+  background: var(--gradient-text);
   flex-shrink: 0;
 }
 .section-label-text {
@@ -219,19 +259,19 @@ section { padding: 6rem 0; }
 .tag {
   display: inline-block;
   padding: 0.35rem 0.9rem;
-  background: var(--accent-dim);
-  border: 1px solid rgba(249,115,22,0.2);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
   border-radius: 100px;
   font-size: 0.8rem;
   font-weight: 500;
-  color: var(--accent);
+  color: var(--text-secondary);
   letter-spacing: 0.02em;
   transition: all var(--transition);
 }
 .tag:hover {
-  background: var(--accent);
-  color: #0D0D0D;
-  border-color: var(--accent);
+  border-color: var(--accent-secondary);
+  color: var(--text-primary);
+  background: var(--accent-dim);
 }
 
 /* ── Buttons ────────────────────────────────────────────────────────────── */
@@ -240,23 +280,26 @@ section { padding: 6rem 0; }
   align-items: center;
   gap: 0.5rem;
   padding: 0.8rem 1.8rem;
-  border-radius: 8px;
+  border-radius: 30px;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   letter-spacing: 0.02em;
   transition: all var(--transition);
   cursor: pointer;
   border: none;
+  font-family: var(--font-heading);
 }
 .btn-primary {
-  background: var(--accent);
-  color: #0D0D0D;
+  background: var(--gradient-primary);
+  background-size: 200% auto;
+  color: #FFFFFF;
+  box-shadow: 0 4px 15px rgba(181, 0, 255, 0.2);
 }
 .btn-primary:hover {
-  background: #FB923C;
-  color: #0D0D0D;
+  background-position: right center;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px var(--accent-glow);
+  box-shadow: 0 8px 25px rgba(181, 0, 255, 0.4);
+  color: #FFFFFF;
 }
 .btn-outline {
   background: transparent;
@@ -264,8 +307,9 @@ section { padding: 6rem 0; }
   border: 1px solid var(--border);
 }
 .btn-outline:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--accent-secondary);
+  color: var(--text-primary);
+  box-shadow: inset 0 0 10px var(--accent-dim);
   transform: translateY(-2px);
 }
 

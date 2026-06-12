@@ -31,12 +31,13 @@ export default function Contact() {
               <span className="section-label-line" />
               <span className="section-label-text">Get In Touch</span>
             </div>
-            <h2 className="section-title" style={{ marginBottom: "1.25rem" }}>
-              Let&apos;s Work<br /><span style={{ color: "var(--accent)" }}>Together</span>
+            <h2 className="section-title" style={{ marginBottom: "1.25rem", fontSize: "clamp(3rem, 5vw, 4.5rem)", lineHeight: 1.1 }}>
+              <span className="text-gradient">Say Hi!</span><br />
+              and tell me about<br/>your idea
             </h2>
-            <p style={{ color: "var(--text-secondary)", fontSize: "1rem", lineHeight: 1.75, marginBottom: "2.5rem" }}>
+            <p style={{ color: "var(--text-secondary)", fontSize: "1rem", lineHeight: 1.75, marginBottom: "2.5rem", maxWidth: "400px" }}>
               Looking for a dedicated QA Engineer? I&apos;m open to new opportunities — full-time, part-time, or consulting.
-              Let&apos;s talk about how I can help ship your product with confidence.
+              Let&apos;s ship your product with confidence.
             </p>
             <a href="mailto:daveharsh09@gmail.com" className="btn btn-primary" style={{ fontSize: "1rem", padding: "1rem 2.25rem" }}>
               Send Me an Email →

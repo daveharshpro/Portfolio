@@ -48,7 +48,7 @@ const education = [
 
 export default function Education() {
   return (
-    <section id="education" style={{ background: "#0A0A0A" }}>
+    <section id="education" style={{ background: "transparent" }}>
       <div className="container">
         <motion.div
           variants={fadeUp}
@@ -78,7 +78,7 @@ export default function Education() {
               variants={cardAnim}
               whileHover={{ background: "var(--bg-card-hover)" } as never}
               style={{
-                background: edu.highlight ? "rgba(249,115,22,0.04)" : "var(--bg-card)",
+                background: edu.highlight ? "var(--accent-dim)" : "var(--bg-card)",
                 padding: "2.25rem",
                 borderLeft: edu.highlight ? "2px solid var(--accent)" : "none",
                 transition: "background 0.3s",
@@ -91,7 +91,7 @@ export default function Education() {
                   fontFamily: "var(--font-mono)",
                   fontSize: "0.72rem",
                   color: edu.highlight ? "var(--accent)" : "var(--text-muted)",
-                  border: `1px solid ${edu.highlight ? "rgba(249,115,22,0.3)" : "var(--border)"}`,
+                  border: `1px solid ${edu.highlight ? "var(--accent-secondary)" : "var(--border)"}`,
                   borderRadius: "100px",
                   padding: "0.2rem 0.65rem",
                   letterSpacing: "0.06em",

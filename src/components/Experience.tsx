@@ -105,8 +105,8 @@ export default function Experience() {
                   {exp.current && (
                     <span style={{
                       padding: "0.2rem 0.6rem", borderRadius: "100px",
-                      background: "rgba(249,115,22,0.15)", border: "1px solid rgba(249,115,22,0.3)",
-                      fontSize: "0.7rem", color: "var(--accent)", fontWeight: 600, letterSpacing: "0.05em"
+                      background: "var(--accent-dim)", border: "1px solid var(--accent-secondary)",
+                      fontSize: "0.7rem", color: "var(--text-primary)", fontWeight: 600, letterSpacing: "0.05em"
                     }}>CURRENT</span>
                   )}
                 </div>
