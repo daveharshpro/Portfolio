@@ -26,26 +26,34 @@ export default function Navbar() {
           HD<span>.</span>
         </a>
 
-        <motion.nav
-          className="nav-links"
-          variants={navVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {navItems.map((item) => (
-            <motion.a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="nav-link"
-              variants={linkVariants}
-            >
-              {item}
-            </motion.a>
-          ))}
-          <motion.a href="mailto:daveharsh09@gmail.com" className="nav-cta" variants={linkVariants}>
+        <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
+          <motion.nav
+            className="nav-links"
+            variants={navVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {navItems.map((item) => (
+              <motion.a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="nav-link"
+                variants={linkVariants}
+              >
+                {item}
+              </motion.a>
+            ))}
+          </motion.nav>
+          <motion.a 
+            href="mailto:daveharsh09@gmail.com" 
+            className="nav-cta"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             Hire Me
           </motion.a>
-        </motion.nav>
+        </div>
       </div>
     </motion.header>
   );

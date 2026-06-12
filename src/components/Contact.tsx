@@ -17,7 +17,7 @@ export default function Contact() {
   return (
     <section id="contact" style={{ background: "var(--bg)" }}>
       <div className="container">
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center" }}>
+        <div className="contact-grid">
 
           {/* Left */}
           <motion.div

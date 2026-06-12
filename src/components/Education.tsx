@@ -66,7 +66,7 @@ export default function Education() {
         </motion.div>
 
         <motion.div
-          style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1px", background: "var(--border)", borderRadius: "16px", overflow: "hidden" }}
+          className="education-grid"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}

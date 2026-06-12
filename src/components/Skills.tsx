@@ -81,14 +81,7 @@ export default function Skills() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: gi * 0.06, ease: "easeOut" }}
             >
-              <div style={{
-                display: "grid",
-                gridTemplateColumns: "180px 1fr",
-                gap: "2rem",
-                alignItems: "flex-start",
-                paddingBottom: "2rem",
-                borderBottom: gi < skillGroups.length - 1 ? "1px solid var(--border)" : "none",
-              }}>
+              <div className="skills-grid" style={{ borderBottom: gi < skillGroups.length - 1 ? "1px solid var(--border)" : "none" }}>
                 <p style={{
                   fontFamily: "var(--font-mono)",
                   fontSize: "0.75rem",

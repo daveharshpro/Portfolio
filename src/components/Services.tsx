@@ -66,7 +66,7 @@ export default function Services() {
           </p>
         </motion.div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1px", background: "var(--border)", borderRadius: "16px", overflow: "hidden" }}>
+        <div className="services-grid">
           {services.map((s, i) => (
             <motion.div
               key={i}

@@ -92,12 +92,9 @@ export default function Experience() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.55, delay: i * 0.1, ease: "easeOut" }}
+              className="experience-grid"
               style={{
                 background: "var(--bg-card)",
-                padding: "2.25rem 2.5rem",
-                display: "grid",
-                gridTemplateColumns: "220px 1fr",
-                gap: "3rem",
                 transition: "background 0.3s",
               }}
               whileHover={{ background: "var(--bg-card-hover)" } as never}

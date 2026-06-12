@@ -21,10 +21,10 @@ export default function Hero() {
   return (
     <section id="hero" style={{ minHeight: "100vh", display: "flex", alignItems: "center", paddingTop: "6rem" }}>
       <div className="container">
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 420px", gap: "5rem", alignItems: "center" }}>
+        <div className="hero-grid">
 
           {/* Left — Text */}
-          <motion.div variants={stagger} initial="hidden" animate="visible">
+          <motion.div className="hero-grid-left" variants={stagger} initial="hidden" animate="visible">
             <motion.div variants={fadeUp} style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "2rem" }}>
               <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--accent)", display: "inline-block", boxShadow: "0 0 12px var(--accent)" }} />
               <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.8rem", color: "var(--text-secondary)", letterSpacing: "0.15em", textTransform: "uppercase" }}>
@@ -49,7 +49,7 @@ export default function Hero() {
               high-quality web and mobile applications across SaaS, WordPress, Travel, and Real Estate domains.
             </motion.p>
 
-            <motion.div variants={fadeUp} style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+            <motion.div className="btn-group" variants={fadeUp} style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
               <a href="#experience" className="btn btn-primary">View Experience →</a>
               <a href="#contact" className="btn btn-outline">Get In Touch</a>
             </motion.div>
@@ -131,10 +131,11 @@ export default function Hero() {
 
         {/* Stats row */}
         <motion.div
+          className="stats-grid"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.8 }}
-          style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1px", background: "var(--border)", marginTop: "5rem", borderRadius: "12px", overflow: "hidden" }}
+          style={{ marginTop: "5rem" }}
         >
           {stats.map((s, i) => (
             <div key={i} style={{ background: "var(--bg-card)", padding: "1.75rem", textAlign: "center" }}>
