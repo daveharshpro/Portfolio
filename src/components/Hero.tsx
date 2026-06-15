@@ -102,7 +102,6 @@ export default function Hero() {
             </motion.h1>
 
             <motion.div variants={fadeUp} style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.75rem" }}>
-              <span style={{ height: "1px", width: "40px", background: "var(--accent)" }} />
               <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", color: "var(--text-secondary)", letterSpacing: "0.1em" }}>
                 QA ENGINEER · ISTQB CERTIFIED
               </span>

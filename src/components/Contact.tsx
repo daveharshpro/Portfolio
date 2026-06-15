@@ -152,7 +152,7 @@ export default function Contact() {
                   {link.icon}
                 </motion.span>
 
-                <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ flex: 1, minWidth: 0, textAlign: "left" }}>
                   <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--text-muted)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "0.2rem" }}>
                     {link.label}
                   </p>
