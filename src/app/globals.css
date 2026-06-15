@@ -360,3 +360,11 @@ section { padding: 6rem 0; }
   .section-title { font-size: 1.8rem !important; }
   .hero-grid h1 { font-size: 3rem !important; }
 }
+
+@media (max-width: 768px) {
+  .terminal-body { height: 320px !important; }
+}
+@media (max-width: 480px) {
+  .terminal-body { height: 280px !important; }
+  .terminal-title { display: none !important; }
+}

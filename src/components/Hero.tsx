@@ -46,11 +46,12 @@ function StatChip({ label, value, accent }: { label: string; value: string; acce
       border: `1px solid ${accent}33`,
       boxShadow: `0 4px 24px rgba(0,0,0,0.4), 0 0 12px ${accent}18`,
       flex: 1,
+      minWidth: 0,
     }}>
       <span style={{ fontFamily: "var(--font-heading)", fontSize: "1.35rem", fontWeight: 800, background: `linear-gradient(135deg, ${accent}, #ffffff88)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
         {value}
       </span>
-      <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.62rem", color: "var(--text-muted)", letterSpacing: "0.1em", marginTop: "0.2rem", textTransform: "uppercase" }}>
+      <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.62rem", color: "var(--text-muted)", letterSpacing: "0.1em", marginTop: "0.2rem", textTransform: "uppercase", textAlign: "center", lineHeight: 1.2 }}>
         {label}
       </span>
     </div>
@@ -79,8 +80,8 @@ export default function Hero() {
 
   /* ── Scroll-to-reveal ─────────────────────────────────────────────── */
   return (
-    <section id="hero" style={{ minHeight: "100vh", display: "flex", alignItems: "center", paddingTop: "6rem" }}>
-      <div className="container" style={{ position: "relative" }}>
+    <section id="hero" style={{ minHeight: "100vh", display: "flex", flexDirection: "column", paddingTop: "6rem", paddingBottom: "4rem", overflow: "hidden" }}>
+      <div className="container" style={{ position: "relative", marginTop: "auto", marginBottom: "auto", width: "100%" }}>
         {/* Decorative glow line */}
         <div style={{ position: "absolute", top: "0%", right: "-10%", width: "100%", height: "2px", background: "linear-gradient(90deg, transparent, var(--accent-secondary), transparent)", transform: "rotate(-25deg)", opacity: 0.5, pointerEvents: "none" }} />
 
@@ -123,7 +124,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-            style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+            style={{ display: "flex", flexDirection: "column", gap: "1rem", minWidth: 0, width: "100%" }}
           >
             {/* Terminal window */}
             <div style={{
@@ -133,24 +134,26 @@ export default function Hero() {
               boxShadow: "0 24px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.06)",
               overflow: "hidden",
               backdropFilter: "blur(20px)",
+              maxWidth: "100%",
+              minWidth: 0,
             }}>
 
               {/* ── Title bar ─── */}
               <div style={{
                 display: "flex", alignItems: "center", gap: "0.6rem",
-                padding: "0.85rem 1.25rem",
+                padding: "clamp(0.6rem, 2vw, 0.85rem) clamp(0.8rem, 3vw, 1.25rem)",
                 borderBottom: "1px solid rgba(255,255,255,0.06)",
                 background: "rgba(255,255,255,0.03)",
               }}>
                 {/* macOS traffic lights */}
-                <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#ff5f57", display: "block" }} />
-                <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#ffbd2e", display: "block" }} />
-                <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#28c840", display: "block" }} />
-                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--text-muted)", marginLeft: "0.5rem", opacity: 0.7 }}>
+                <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#ff5f57", display: "block", flexShrink: 0 }} />
+                <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#ffbd2e", display: "block", flexShrink: 0 }} />
+                <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#28c840", display: "block", flexShrink: 0 }} />
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--text-muted)", marginLeft: "0.5rem", opacity: 0.7, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", flex: 1, minWidth: 0 }}>
                   playwright run --project=chromium
                 </span>
                 {/* Live pulsing dot */}
-                <span style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: "0.35rem" }}>
+                <span style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: "0.35rem", flexShrink: 0 }}>
                   <motion.span
                     animate={{ opacity: isDone ? 0 : [1, 0.2, 1] }}
                     transition={{ duration: 1.2, repeat: Infinity }}
@@ -163,10 +166,10 @@ export default function Hero() {
               </div>
 
               {/* ── Terminal body ─── */}
-              <div style={{ padding: "1.1rem 1.4rem", height: "400px", overflow: "hidden", fontFamily: "var(--font-mono)", fontSize: "0.75rem", display: "flex", flexDirection: "column" }}>
+              <div style={{ padding: "clamp(0.8rem, 3vw, 1.1rem) clamp(0.8rem, 4vw, 1.4rem)", height: "400px", overflow: "hidden", fontFamily: "var(--font-mono)", fontSize: "0.75rem", display: "flex", flexDirection: "column" }}>
 
                 {/* Prompt header */}
-                <div style={{ color: "#00e5ff", marginBottom: "0.85rem", opacity: 0.7 }}>
+                <div style={{ color: "#00e5ff", marginBottom: "0.85rem", opacity: 0.7, wordBreak: "break-word", whiteSpace: "pre-wrap", lineHeight: 1.4 }}>
                   <span style={{ color: "#b500ff" }}>harsh@qa</span>
                   <span style={{ color: "rgba(255,255,255,0.4)" }}>:</span>
                   <span style={{ color: "#00e5ff" }}>~/portfolio</span>
@@ -188,19 +191,19 @@ export default function Hero() {
                         initial={{ opacity: 0, x: -12, filter: "blur(4px)" }}
                         animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
                         transition={{ duration: 0.25, ease: "easeOut" }}
-                        style={{ display: "flex", alignItems: "center", gap: "0.55rem" }}
+                        style={{ display: "flex", alignItems: "center", gap: "0.55rem", minWidth: 0 }}
                       >
                         {/* Check */}
                         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                           <polyline points="20 6 9 17 4 12"/>
                         </svg>
                         {/* Suite name */}
-                        <span style={{ color: "rgba(255,255,255,0.35)", fontSize: "0.65rem" }}>{test.suite}</span>
-                        <span style={{ color: "rgba(255,255,255,0.2)", fontSize: "0.65rem" }}>›</span>
+                        <span style={{ color: "rgba(255,255,255,0.35)", fontSize: "0.65rem", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: "35%", flexShrink: 1, minWidth: 0 }}>{test.suite}</span>
+                        <span style={{ color: "rgba(255,255,255,0.2)", fontSize: "0.65rem", flexShrink: 0 }}>›</span>
                         {/* Test name */}
-                        <span style={{ color: "rgba(255,255,255,0.82)", flex: 1 }}>{test.name}</span>
+                        <span style={{ color: "rgba(255,255,255,0.82)", flex: 1, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", minWidth: 0 }}>{test.name}</span>
                         {/* Time */}
-                        <span style={{ color: "rgba(255,255,255,0.28)", fontSize: "0.65rem", marginLeft: "auto" }}>{test.time}</span>
+                        <span style={{ color: "rgba(255,255,255,0.28)", fontSize: "0.65rem", marginLeft: "auto", flexShrink: 0 }}>{test.time}</span>
                       </motion.div>
                     ))}
                   </AnimatePresence>
@@ -274,7 +277,7 @@ export default function Hero() {
 
             {/* ── Stat chips ─── */}
             <motion.div
-              style={{ display: "flex", gap: "0.75rem" }}
+              style={{ display: "flex", gap: "0.75rem", minWidth: 0, width: "100%" }}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.6 }}
