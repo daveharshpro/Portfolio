@@ -16,7 +16,7 @@ const services = [
   {
     num: "02",
     title: "API Testing",
-    desc: "End-to-end API validation using Postman & Swagger — verifying business logic, data integrity, and contract testing across all endpoints.",
+    desc: "End-to-end API validation using Postman & Swagger, verifying business logic, data integrity, and contract testing across all endpoints.",
     tags: ["Postman", "Swagger", "REST"],
   },
   {
@@ -34,7 +34,7 @@ const services = [
   {
     num: "05",
     title: "Domain Testing",
-    desc: "Specialized testing for Real Estate, ERP, CRM, SaaS, WordPress, and Travel & Booking platforms — complex workflows and business rule validation.",
+    desc: "Specialized testing for Real Estate, ERP, CRM, SaaS, WordPress, and Travel & Booking platforms, covering complex workflows and business rule validation.",
     tags: ["Real Estate", "ERP", "CRM"],
   },
   {
@@ -62,7 +62,7 @@ export default function Services() {
           </div>
           <h2 className="section-title">Services &amp;<br /><span style={{ color: "var(--accent)" }}>Expertise</span></h2>
           <p className="section-subtitle" style={{ marginBottom: "3.5rem" }}>
-            End-to-end quality assurance from strategy to execution — ensuring every product ships with confidence.
+            End-to-end quality assurance from strategy to execution, ensuring every product ships with confidence.
           </p>
         </motion.div>
 

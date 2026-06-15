@@ -46,14 +46,14 @@ const education = [
   {
     type: "Certification",
     title: "ISTQB Foundation Level",
-    institution: "ISTQB — ITB",
+    institution: "ISTQB (ITB)",
     year: "2023",
     icon: <AwardIcon />,
     highlight: true,
   },
   {
     type: "Course",
-    title: "Cypress — Modern Automation Testing + Frameworks",
+    title: "Cypress: Modern Automation Testing + Frameworks",
     institution: "Online Course",
     year: "2022",
     icon: <TargetIcon />,
@@ -69,9 +69,9 @@ const education = [
   },
   {
     type: "Degree",
-    title: "BE — Mechanical Engineering",
+    title: "BE in Mechanical Engineering",
     institution: "G K Bharad Institute Of Engineering",
-    year: "2012 — 2016",
+    year: "2012 to 2016",
     icon: <GradCapIcon />,
     highlight: false,
   },

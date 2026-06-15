@@ -1,11 +1,18 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function CursorFollower() {
   const dotRef  = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
 
+  const [isMounted, setIsMounted] = useState(false);
+
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
     let ringX = 0, ringY = 0;
     let mouseX = 0, mouseY = 0;
     let raf: number;
@@ -51,7 +58,9 @@ export default function CursorFollower() {
       window.removeEventListener("mousemove", move);
       cancelAnimationFrame(raf);
     };
-  }, []);
+  }, [isMounted]);
+
+  if (!isMounted) return null;
 
   return (
     <>

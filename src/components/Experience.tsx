@@ -10,7 +10,7 @@ const experiences = [
   {
     role: "QA Engineer",
     company: "Momentum91 (A DevX Company)",
-    period: "Sept 2025 — Present",
+    period: "Sept 2025 to Present",
     type: "Full-time · Office",
     location: "Ahmedabad, India",
     points: [
@@ -24,7 +24,7 @@ const experiences = [
   {
     role: "QA Consultant",
     company: "Freelancer",
-    period: "Feb 2025 — Aug 2025",
+    period: "Feb 2025 to Aug 2025",
     type: "Part-time · Remote",
     location: "Remote",
     points: [
@@ -38,7 +38,7 @@ const experiences = [
   {
     role: "QA Engineer",
     company: "Multidots Inc.",
-    period: "Oct 2023 — Jan 2025",
+    period: "Oct 2023 to Jan 2025",
     type: "Full-time · Remote",
     location: "Remote · USA",
     points: [
@@ -52,11 +52,11 @@ const experiences = [
   {
     role: "Quality Assurance Engineer",
     company: "Oneclick IT Consultancy",
-    period: "Dec 2021 — July 2023",
+    period: "Dec 2021 to July 2023",
     type: "Full-time · Office",
     location: "Ahmedabad, India",
     points: [
-      "Built Cypress automated test scripts — 30% reduction in testing time.",
+      "Built Cypress automated test scripts, achieving 30% reduction in testing time.",
       "Collaborated to resolve critical bugs, ensuring seamless user experience.",
       "Contributed to comprehensive test suite creation using Mocha and Chai.",
     ],

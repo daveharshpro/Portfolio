@@ -1,5 +1,6 @@
 "use client";
 import { motion, Variants } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -76,6 +77,8 @@ const contactLinks = [
 ];
 
 export default function Contact() {
+  const [year, setYear] = useState(2026);
+  useEffect(() => { setYear(new Date().getFullYear()); }, []);
   return (
     <section id="contact" style={{ background: "var(--bg)" }}>
       <div className="container">
@@ -98,7 +101,7 @@ export default function Contact() {
               and tell me about<br />your idea
             </h2>
             <p style={{ color: "var(--text-secondary)", fontSize: "1rem", lineHeight: 1.75, marginBottom: "2.5rem", maxWidth: "400px" }}>
-              Looking for a dedicated QA Engineer? I&apos;m open to new opportunities — full-time, part-time, or consulting.
+              Looking for a dedicated QA Engineer? I&apos;m open to new opportunities: full-time, part-time, or consulting.
               Let&apos;s ship your product with confidence.
             </p>
             <a href="mailto:daveharsh09@gmail.com" className="btn btn-primary" style={{ fontSize: "1rem", padding: "1rem 2.25rem" }}>
@@ -175,7 +178,7 @@ export default function Contact() {
             HD<span style={{ color: "var(--accent)" }}>.</span>
           </p>
           <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", color: "var(--text-muted)" }}>
-            © {new Date().getFullYear()} Harsh Dave. All rights reserved.
+            © {year} Harsh Dave. All rights reserved.
           </p>
         </div>
       </div>
