@@ -6,12 +6,77 @@ const fadeUp: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
+const cardSlide: Variants = {
+  hidden: { opacity: 0, x: 60, filter: "blur(8px)" },
+  visible: (i: number) => ({
+    opacity: 1,
+    x: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.55, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] },
+  }),
+};
+
+/* ── Real, pixel-perfect brand SVG icons ─────────────────────────────────── */
+
+// Gmail / Email — official envelope shape
+const EmailIcon = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11A2.5 2.5 0 0 1 19.5 20h-15A2.5 2.5 0 0 1 2 17.5V6.5z"
+      stroke="currentColor" strokeWidth="1.6"
+    />
+    <path
+      d="M2 7l8.172 5.743a3 3 0 0 0 3.656 0L22 7"
+      stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"
+    />
+  </svg>
+);
+
+// LinkedIn — official "in" square logo
+const LinkedInIcon = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19 0H5C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5V5c0-2.761-2.238-5-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"/>
+  </svg>
+);
+
+// GitHub — official Octocat logo path
+const GitHubIcon = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+  </svg>
+);
+
+// Google Maps Pin — clean teardrop with dot
+const LocationIcon = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+      fill="currentColor" opacity="0.25"
+    />
+    <path
+      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+      stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"
+    />
+    <circle cx="12" cy="9" r="2.5" fill="currentColor"/>
+  </svg>
+);
+
 const contactLinks = [
-  { label: "Email", value: "daveharsh09@gmail.com", href: "mailto:daveharsh09@gmail.com", icon: "✉️" },
-  { label: "LinkedIn", value: "linkedin.com/in/harsh-dave-52b44688", href: "https://www.linkedin.com/in/harsh-dave-52b44688/", icon: "💼" },
-  { label: "GitHub", value: "github.com/daveharshpro", href: "https://github.com/daveharshpro", icon: "🐙" },
-  { label: "Location", value: "Ahmedabad, India", href: "#", icon: "📍" },
+  { label: "Email",    value: "daveharsh09@gmail.com",                 href: "mailto:daveharsh09@gmail.com",              icon: <EmailIcon />    },
+  { label: "LinkedIn", value: "linkedin.com/in/harsh-dave-52b44688",   href: "https://www.linkedin.com/in/harsh-dave-52b44688/", icon: <LinkedInIcon /> },
+  { label: "GitHub",   value: "github.com/daveharshpro",               href: "https://github.com/daveharshpro",           icon: <GitHubIcon />   },
+  { label: "Location", value: "Ahmedabad, India",                      href: "#",                                         icon: <LocationIcon /> },
 ];
+
+const iconStyle: React.CSSProperties = {
+  color: "#ffffff",
+  filter: "drop-shadow(0 0 8px rgba(255,255,255,0.85)) drop-shadow(0 0 18px rgba(255,255,255,0.4))",
+  flexShrink: 0,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  width: "36px",
+};
 
 export default function Contact() {
   return (
@@ -33,7 +98,7 @@ export default function Contact() {
             </div>
             <h2 className="section-title" style={{ marginBottom: "1.25rem", fontSize: "clamp(3rem, 5vw, 4.5rem)", lineHeight: 1.1 }}>
               <span className="text-gradient">Say Hi!</span><br />
-              and tell me about<br/>your idea
+              and tell me about<br />your idea
             </h2>
             <p style={{ color: "var(--text-secondary)", fontSize: "1rem", lineHeight: 1.75, marginBottom: "2.5rem", maxWidth: "400px" }}>
               Looking for a dedicated QA Engineer? I&apos;m open to new opportunities — full-time, part-time, or consulting.
@@ -45,42 +110,47 @@ export default function Contact() {
           </motion.div>
 
           {/* Right — contact cards */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ staggerChildren: 0.1 }}
-            style={{ display: "flex", flexDirection: "column", gap: "1px", background: "var(--border)", borderRadius: "16px", overflow: "hidden" }}
-          >
+          <div style={{ display: "flex", flexDirection: "column", gap: "1px", background: "var(--border)", borderRadius: "16px", overflow: "hidden" }}>
             {contactLinks.map((link, i) => (
               <motion.a
                 key={i}
                 href={link.href}
                 target={link.href.startsWith("http") ? "_blank" : undefined}
                 rel="noopener noreferrer"
-                variants={fadeUp}
+                custom={i}
+                variants={cardSlide}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
                 style={{
                   background: "var(--bg-card)",
                   padding: "1.5rem 2rem",
                   display: "flex",
                   alignItems: "center",
-                  gap: "1.25rem",
-                  transition: "background 0.3s",
+                  gap: "1.5rem",
                   textDecoration: "none",
                   color: "inherit",
+                  position: "relative",
+                  overflow: "hidden",
                 }}
-                whileHover={{ background: "var(--bg-card-hover)", x: 6 } as never}
-                transition={{ duration: 0.2 }}
+                whileHover={{ background: "var(--bg-card-hover)", x: 5 } as never}
+                transition={{ duration: 0.22 }}
               >
-                <span style={{ fontSize: "1.5rem" }}>{link.icon}</span>
-                <div>
+                {/* Glowing white icon — no background */}
+                <span style={iconStyle}>{link.icon}</span>
+
+                <div style={{ flex: 1, minWidth: 0 }}>
                   <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--text-muted)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "0.2rem" }}>{link.label}</p>
-                  <p style={{ fontSize: "0.9rem", color: "var(--text-primary)", fontWeight: 500 }}>{link.value}</p>
+                  <p style={{ fontSize: "0.9rem", color: "var(--text-primary)", fontWeight: 500, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{link.value}</p>
                 </div>
-                <span style={{ marginLeft: "auto", color: "var(--accent)", fontSize: "1.1rem" }}>↗</span>
+
+                {/* Diagonal arrow */}
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
+                  <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                </svg>
               </motion.a>
             ))}
-          </motion.div>
+          </div>
         </div>
 
         {/* Footer */}

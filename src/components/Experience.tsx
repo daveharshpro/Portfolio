@@ -112,7 +112,13 @@ export default function Experience() {
                 </div>
                 <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.78rem", color: "var(--text-muted)", marginBottom: "0.35rem" }}>{exp.period}</p>
                 <p style={{ fontSize: "0.83rem", color: "var(--text-secondary)" }}>{exp.type}</p>
-                <p style={{ fontSize: "0.83rem", color: "var(--text-muted)", marginTop: "0.2rem" }}>📍 {exp.location}</p>
+                <p style={{ fontSize: "0.83rem", color: "var(--text-muted)", marginTop: "0.2rem", display: "flex", alignItems: "center", gap: "0.35rem" }}>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, color: "var(--accent)" }}>
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                  {exp.location}
+                </p>
               </div>
 
               {/* Right column */}

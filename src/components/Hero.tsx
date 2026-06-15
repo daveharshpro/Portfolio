@@ -123,12 +123,36 @@ export default function Hero() {
                 <p style={{ color: "var(--accent)", fontFamily: "var(--font-mono)", fontSize: "0.8rem", letterSpacing: "0.08em", marginBottom: "1.25rem" }}>QA ENGINEER · ISTQB CERTIFIED</p>
                 <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
                   {[
-                    { icon: "📍", text: "Ahmedabad, India" },
-                    { icon: "🏢", text: "Momentum91 (DevX Company)" },
-                    { icon: "🎯", text: "Playwright · Cypress · API Testing" },
+                    {
+                      icon: (
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                          <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                      ),
+                      text: "Ahmedabad, India"
+                    },
+                    {
+                      icon: (
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                        </svg>
+                      ),
+                      text: "Momentum91 (DevX Company)"
+                    },
+                    {
+                      icon: (
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                      ),
+                      text: "Playwright · Cypress · API Testing"
+                    },
                   ].map((item, i) => (
                     <div key={i} style={{ display: "flex", alignItems: "center", gap: "0.6rem", fontSize: "0.88rem", color: "var(--text-secondary)" }}>
-                      <span>{item.icon}</span><span>{item.text}</span>
+                      <span style={{ color: "var(--accent)", display: "flex", alignItems: "center", flexShrink: 0 }}>{item.icon}</span>
+                      <span>{item.text}</span>
                     </div>
                   ))}
                 </div>
